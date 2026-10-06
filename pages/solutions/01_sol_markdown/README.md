@@ -35,4 +35,21 @@ Nic nie zrozumiałem, ale to wynika z tego, że zielone pole zajmuje wiele czasu
 - Schabowy
 - Ziemniaki
 
-Rozumiecie? Wszystko zwykłe i nudne, jak moje życie, w którym jedyną radością jest kolor zielony [(Piękno zielonego).](http://colab.research.google.com)
+Rozumiecie? Wszystko zwykłe i nudne, jak moje życie, w którym jedyną radością jest kolor zielony [(Piękno zielonego).](http://colab.research.google.com) Są nawet równania fizyczne, które są związane z zielonym:
+
+$$
+\begin{aligned}
+\lambda &= \frac{v}{f} \\
+v &= \lambda f \\
+f &= \frac{v}{\lambda} \\
+\end{aligned}
+$$
+W jakimś wężu, pytonie czy coś podobnego, tak można ukazać zielony:
+```python
+zielone = "#00FF00"
+print(f"Mój kolor to: {zielone}")
+```
+Wracając do Andrzeja, ten drań przekazał mi swoją listę rzeczy do zrobienia na polu, każda z nich bardziej zbędna niż poprzednia:
+- [ ] wydoić krowy
+- [ ] wymienić wodę
+- [ ] usunąć chwasty z pola
