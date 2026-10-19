@@ -8,15 +8,15 @@ Zieloność mego pola można wyrazić na setki różnych sposobów, zacznijmy od
 
 Sąsiadów mam sporo, ale najważniejsza jest poniższa piątka:
 
-I. Andrzej
+1. Andrzej
 
-II. Jan
+2. Jan
 
-III. Kazimierz
+3. Kazimierz
 
-IV. Piotr
+4. Piotr
 
-V. Wojciech
+5. Wojciech
 
 Zacznijmy od Andrzeja, gdyż jest on z nich najpodlejszy. Zamiast polem zajmuje się jakimiś równaniami matematycznymi, nawet wymienił mi kilka z nich, mianowicie:
 
@@ -38,12 +38,17 @@ Nic nie zrozumiałem, ale to wynika z tego, że zielone pole zajmuje wiele czasu
 Rozumiecie? Wszystko zwykłe i nudne, jak moje życie, w którym jedyną radością jest kolor zielony [(Piękno zielonego).](http://colab.research.google.com) Są nawet równania fizyczne, które są związane z zielonym:
 
 $$
-\begin{aligned}
-\lambda &= \frac{v}{f} \\
-v &= \lambda f \\
-f &= \frac{v}{\lambda} \\
-\end{aligned}
+\lambda = \frac{v}{f}
 $$
+
+$$
+v = \lambda f
+$$
+
+$$
+f = \frac{v}{\lambda}
+$$
+
 W jakimś wężu, pytonie czy coś podobnego, tak można ukazać zielony:
 ```python
 zielone = "#00FF00"
@@ -53,3 +58,16 @@ Wracając do Andrzeja, ten drań przekazał mi swoją listę rzeczy do zrobienia
 - [ ] wydoić krowy
 - [ ] wymienić wodę
 - [ ] usunąć chwasty z pola
+On jest taką niemotą, że przyłapałem go uczącego się takich podstaw dla życia na wsi:
+
+| Rodzaj pola | Charakterystyka |
+|-------------|-----------------|
+| Pole orne | Przeznaczone pod uprawę roślin |
+| Łąka | Użytkowana głównie do produkcji siana |
+| Pastwisko | Przeznaczone do wypasu zwierząt |
+| Sad | Uprawa drzew i krzewów owocowych |
+| Ugór | Pole czasowo wyłączone z uprawy |
+
+
+Jego syn, Tomek, uczy się fizyki, i ma problem z tym wykresem, cóż za absurd!
+![Opis wykresu](wykres.png)
