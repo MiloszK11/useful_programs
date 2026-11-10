@@ -2,9 +2,9 @@
 
 *Raport obliczeniowy i przykład wykorzystania Markdown, równań matematycznych oraz wykresów wygenerowanych w Pythonie.*
 
-**Temat:** ruch ciała wyrzuconego pod kątem do poziomu.  
-**Metoda:** wyprowadzenie analityczne dla modelu idealnego, a następnie numeryczne rozwiązanie równań ruchu z kwadratowym oporem powietrza.  
-**Charakter danych:** przykład modelowy, nie pomiar laboratoryjny.
+- **Temat:** ruch ciała wyrzuconego pod kątem do poziomu.
+- **Metoda:** wyprowadzenie analityczne dla modelu idealnego, a następnie numeryczne rozwiązanie równań ruchu z kwadratowym oporem powietrza.
+- **Charakter danych:** przykład modelowy, nie pomiar laboratoryjny.
 
 Rzut ukośny można rozłożyć na dwa ruchy: poziomy i pionowy. Bez oporu powietrza składowe te łączy wyłącznie wspólny czas. Opór powietrza sprzęga je ze sobą, ponieważ jego wartość zależy od całkowitej prędkości. W raporcie porównano oba modele dla prędkości i kąta wyznaczonych z numeru indeksu.
 
@@ -16,7 +16,8 @@ Rzut ukośny można rozłożyć na dwa ruchy: poziomy i pionowy. Bez oporu powie
 4. [Wykresy i interpretacja](#4-wykresy-i-interpretacja)
 5. [Kod i odtwarzanie wyników](#5-kod-i-odtwarzanie-wyników)
 6. [Wnioski](#6-wnioski)
-7. [Źródła](#7-źródła)
+7. [Alternatywny wariant oporu](#7-alternatywny-wariant-z-parametrem-oporu-k)
+8. [Źródła](#8-źródła)
 
 ---
 
@@ -327,7 +328,45 @@ Skrypt zapisuje pliki `tory_lotu.png`, `polozenie_predkosc.png`, `energia.png` i
 3. Energia mechaniczna nie jest zachowana w obecności oporu. Jej ubytek jest zgodny z pracą siły oporu, co pozwala sprawdzić poprawność symulacji.
 4. Kąt $45^\circ$ maksymalizuje zasięg tylko w idealnym modelu bez oporu i przy równych wysokościach startu oraz lądowania. W zastosowanym modelu oporu maksimum w przeszukanej siatce wypada przy $41^\circ$.
 
-## 7. Źródła
+## 7. Alternatywny wariant z parametrem oporu $k$
+
+Poprzednia część używa modelu aerodynamicznego piłki baseballowej, gdzie współczynnik przyspieszenia oporu wynosi $\lambda=\rho C_D A/(2m)=0{,}008355\,\mathrm{m^{-1}}$. Drugi skrypt przedstawia uproszczony model tej samej siły, zapisany jako:
+
+$$
+\vec F_d=-k|\vec v|\vec v,
+\qquad
+\lambda=\frac{k}{m}.
+$$
+
+Przyjmuje on $m=1{,}00\,\mathrm{kg}$ i $k=0{,}050\,\mathrm{kg/m}$, czyli $\lambda=0{,}050\,\mathrm{m^{-1}}$. Jest to wyraźnie silniejszy opór niż w modelu piłki baseballowej; wyniki obu symulacji należy więc traktować jako dwa warianty założeń, a nie jako różnice numeryczne w obliczeniu tego samego przypadku.
+
+| Wielkość | Bez oporu | Uproszczony opór $k$ | Jednostka SI |
+| :--- | ---: | ---: | :---: |
+| Czas lotu | $6{,}897$ | $3{,}869$ | $\mathrm{s}$ |
+| Wysokość maksymalna | $58{,}328$ | $18{,}278$ | $\mathrm{m}$ |
+| Zasięg | $84{,}919$ | $16{,}664$ | $\mathrm{m}$ |
+
+Wykresy dla tego wariantu generuje skrypt [`symulacja_rzutu.py`](symulacja_rzutu.py):
+
+![Tor lotu w uproszczonym modelu oporu](files/tor_lotu.png)
+
+![Położenie w czasie w uproszczonym modelu oporu](files/polozenie_w_czasie.png)
+
+![Składowe prędkości w uproszczonym modelu oporu](files/predkosci_w_czasie.png)
+
+![Szybkość w czasie w uproszczonym modelu oporu](files/szybkosc_w_czasie.png)
+
+Aby odtworzyć te wyniki, z katalogu głównego repozytorium wykonaj:
+
+```bash
+python3 -m venv /tmp/rzut-ukosny-venv
+/tmp/rzut-ukosny-venv/bin/python -m pip install -r pages/solutions/04_sol_vscode/requirements.txt
+/tmp/rzut-ukosny-venv/bin/python pages/solutions/04_sol_vscode/symulacja_rzutu.py
+```
+
+Parametry wejściowe znajdują się na początku skryptu. Przy innym numerze indeksu zmień `V0` i `ALPHA_DEG`.
+
+## 8. Źródła
 
 - OpenStax, [Projectile Motion](https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion) — rozkład ruchu na składowe i równania rzutu idealnego.
 - NASA Glenn Research Center, [The Drag Equation](https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/drag-equation/) — równanie siły oporu aerodynamicznego.
